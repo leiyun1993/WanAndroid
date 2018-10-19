@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_marginStart="@dimen/d_12"
+        android:layout_marginEnd="@dimen/d_12"
+        android:background="@drawable/shape_round_3dp_ebebeb"
+        android:drawableLeft="@mipmap/ic_search_article"
+        android:drawablePadding="@dimen/d_8"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/d_15"
+        android:text="搜索"
+        android:textColor="@color/gray_1"
+        android:textSize="@dimen/sp14" />
+
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/d_12"
+        android:layout_marginTop="@dimen/d_12"
+        android:layout_marginEnd="@dimen/d_12"
+        app:banner_indicatorGravity="bottom|right"
+        app:banner_pointAutoPlayInterval="4000"
+        app:banner_placeholderDrawable="@mipmap/ic_empty_banner"
+        app:banner_pointDrawable="@drawable/selector_banner_point" />
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/nameHeadTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_12"
+        android:layout_marginTop="@dimen/d_8"
+        android:background="@drawable/shape_head_red"
+        android:gravity="center"
+        android:text="N"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_gravity="center" />
+
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="name"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintBottom_toBottomOf="@+id/nameHeadTV"
+        app:layout_constraintLeft_toRightOf="@+id/nameHeadTV"
+        app:layout_constraintTop_toTopOf="@+id/nameHeadTV" />
+
+    <TextView
+        android:id="@+id/typeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="@dimen/d_12"
+        android:text="name"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintBottom_toBottomOf="@+id/nameHeadTV"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nameHeadTV" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_12"
+        android:layout_marginTop="@dimen/d_5"
+        android:layout_marginEnd="@dimen/d_12"
+        android:singleLine="true"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameHeadTV"
+        tools:text="按时间分页展示所有项目" />
+
+    <TextView
+        android:id="@+id/descTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_12"
+        android:layout_marginTop="@dimen/d_5"
+        android:layout_marginEnd="@dimen/d_12"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTv"
+        tools:text="按时间分页展示所有项目按时间分页展示所有项目按时间分页展示所有项目按时间分页展示所有项目按时间分页展示所有项目按时间分页展示所有项目按时间分页展示所有项目按时间分页展示所有项目" />
+
+    <ImageView
+        android:id="@+id/heartIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_12"
+        android:src="@mipmap/ic_heart"
+        app:layout_constraintBottom_toBottomOf="@+id/timeTv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeTv" />
+
+    <TextView
+        android:id="@+id/timeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d_5"
+        android:layout_marginEnd="@dimen/d_12"
+        android:layout_marginBottom="@dimen/d_8"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descTv"
+        tools:text="18-09-13" />
+
+</android.support.constraint.ConstraintLayout>
