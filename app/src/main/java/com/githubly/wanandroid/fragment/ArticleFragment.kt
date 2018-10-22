@@ -24,7 +24,7 @@ import org.jetbrains.anko.support.v4.act
  */
 class ArticleFragment : BaseFragment<BasePresenter<*>>() {
 
-    private lateinit var chaptList: MutableList<Chapter>
+    private lateinit var chapterList: MutableList<Chapter>
 
     override val inflateId: Int
         get() = R.layout.fragment_article
@@ -35,19 +35,20 @@ class ArticleFragment : BaseFragment<BasePresenter<*>>() {
 
     override fun initData() {
         val readFileFromAssets = FileUtils.getFromAssets(act, "chapters")
-        chaptList = Gson().fromJson(readFileFromAssets, object : TypeToken<List<Chapter>>() {}.type)
-        viewPager.adapter = ArticlePagerAdapter(chaptList, childFragmentManager)
+        chapterList = Gson().fromJson(readFileFromAssets, object : TypeToken<List<Chapter>>() {}.type)
+        viewPager.adapter = ArticlePagerAdapter(chapterList, childFragmentManager)
         tabLayout.setViewPager(viewPager)
     }
 
     override fun initPresenter(): BasePresenter<*>? = null
 }
 
-class ArticlePagerAdapter(private val chaptList: MutableList<Chapter>, fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class ArticlePagerAdapter(private val chapterList: MutableList<Chapter>, fm: FragmentManager) :
+    FragmentPagerAdapter(fm) {
 
-    override fun getItem(position: Int): Fragment = ArticlePageFragment.getNewInstance(chaptList[position].id)
+    override fun getItem(position: Int): Fragment = ArticlePageFragment.getNewInstance(chapterList[position].id)
 
-    override fun getCount(): Int = chaptList.size
+    override fun getCount(): Int = chapterList.size
 
-    override fun getPageTitle(position: Int): CharSequence? = chaptList[position].name
+    override fun getPageTitle(position: Int): CharSequence? = chapterList[position].name
 }

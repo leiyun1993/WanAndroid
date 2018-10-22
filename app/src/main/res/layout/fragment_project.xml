@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.ArticleFragment">
+    tools:context=".fragment.ProjectFragment">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:textSize="@dimen/sp18"
             android:textStyle="bold"
             android:fontFamily="@font/font_title"
-            app:layout_scrollFlags="scroll|enterAlways" />
+            app:layout_scrollFlags="scroll|snap" />
 
         <com.flyco.tablayout.SlidingTabLayout
             android:id="@+id/tabLayout"

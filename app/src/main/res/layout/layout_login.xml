@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/loginBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/registerBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/loginBottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/loginTag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_tag" />
+
+            <ImageView
+                android:id="@+id/registerTag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_tag"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loginLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/loginNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/line_et_bg"
+                android:hint="用户名"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="12sp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/loginPasswordTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/line_et_bg"
+                android:hint="密码"
+                android:includeFontPadding="false"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/btnGoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_login_btn"
+                android:gravity="center"
+                android:paddingLeft="80dp"
+                android:paddingTop="10dp"
+                android:paddingRight="80dp"
+                android:paddingBottom="10dp"
+                android:text="登录"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/registerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/registerNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/line_et_bg"
+                android:hint="用户名"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="12sp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/registerPwdTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/line_et_bg"
+                android:hint="密码"
+                android:includeFontPadding="false"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="12sp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/registerRePwdTv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/line_et_bg"
+                android:hint="确认密码"
+                android:includeFontPadding="false"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/btnGoRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_login_btn"
+                android:gravity="center"
+                android:paddingLeft="80dp"
+                android:paddingTop="10dp"
+                android:paddingRight="80dp"
+                android:paddingBottom="10dp"
+                android:text="注册"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

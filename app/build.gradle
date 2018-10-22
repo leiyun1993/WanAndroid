@@ -48,4 +48,7 @@ dependencies {
     implementation 'com.loopeer.lib:shadow:0.0.4-beta3'
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.yanzhenjie:loading:1.0.2'
 }

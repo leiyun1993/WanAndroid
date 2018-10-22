@@ -7,26 +7,27 @@ import com.githubly.wanandroid.activity.base.BaseActivity
 import com.githubly.wanandroid.adapter.HomeViewPagerAdapter
 import com.githubly.wanandroid.fragment.ArticleFragment
 import com.githubly.wanandroid.fragment.HomeFragment
+import com.githubly.wanandroid.fragment.MyFragment
 import com.githubly.wanandroid.fragment.ProjectFragment
+import com.githubly.wanandroid.presenter.base.BasePresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * MainActivity
  */
-class MainActivity : BaseActivity(), View.OnClickListener, ViewPager.OnPageChangeListener {
-
+class MainActivity : BaseActivity<BasePresenter<*>>(), View.OnClickListener, ViewPager.OnPageChangeListener {
     private val fragments = mutableListOf<Fragment>()
+
     private var bottomViews = mutableListOf<View>()
-
-
     override val inflateId: Int
         get() = R.layout.activity_main
+
 
     override fun initView() {
         fragments.add(HomeFragment())
         fragments.add(ArticleFragment())
         fragments.add(ProjectFragment())
-        fragments.add(HomeFragment())
+        fragments.add(MyFragment())
 
         homeViewPager.adapter = HomeViewPagerAdapter(fragments, supportFragmentManager)
         homeViewPager.offscreenPageLimit = 4
@@ -45,6 +46,8 @@ class MainActivity : BaseActivity(), View.OnClickListener, ViewPager.OnPageChang
     override fun initData() {
 
     }
+
+    override fun initPresenter(): BasePresenter<*>? = null
 
     override fun isSupportSwipeBack(): Boolean {
         return false
@@ -67,6 +70,7 @@ class MainActivity : BaseActivity(), View.OnClickListener, ViewPager.OnPageChang
     }
 
     override fun onPageScrollStateChanged(p0: Int) {
+
     }
 
     override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {

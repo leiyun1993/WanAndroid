@@ -28,8 +28,7 @@ class ProjectPagePresenter(view: IProjectPageContract.View) : BasePresenter<IPro
                 }
             })
         } else {
-            //接口兼容   page 1  index = 0
-            ApiHelper.api.getProjects(page-1, userID).enqueue(ApiCallBack {
+            ApiHelper.api.getProjects(page, userID).enqueue(ApiCallBack {
                 if (isSuccess) {
                     mView?.onArticleSuccess(data!!)
                 } else {

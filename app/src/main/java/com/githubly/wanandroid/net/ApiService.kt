@@ -1,9 +1,6 @@
 package com.githubly.wanandroid.net
 
-import com.githubly.wanandroid.model.ArticleItem
-import com.githubly.wanandroid.model.Banner
-import com.githubly.wanandroid.model.BaseListData
-import com.githubly.wanandroid.model.BaseResult
+import com.githubly.wanandroid.model.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -38,4 +35,24 @@ interface ApiService {
     //查看某个公众号历史数据
     @GET("/wxarticle/list/{userID}/{page}/json")
     fun getWXArticle(@Path("userID") userID: Int, @Path("page") page: Int): Call<BaseResult<BaseListData<ArticleItem>>>
+
+    //登录
+    @FormUrlEncoded
+    @POST("/user/login")
+    fun login(@Field("username") username: String, @Field("password") password: String): Call<BaseResult<User>>
+
+    //注册
+    @FormUrlEncoded
+    @POST("/user/register")
+    fun register(@Field("username") username: String,
+                 @Field("password") password: String,
+                 @Field("repassword") repassword: String): Call<BaseResult<User>>
+
+    //退出登录
+    @GET("/user/logout/json")
+    fun logout(): Call<BaseResult<String>>
+
+    //收藏文章列表
+    @GET("/lg/collect/list/{page}/json")
+    fun getCollectList(@Path("page") page: Int): Call<BaseResult<BaseListData<ArticleItem>>>
 }

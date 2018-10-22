@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper
 import com.githubly.wanandroid.R
+import com.githubly.wanandroid.presenter.base.BasePresenter
+import com.githubly.wanandroid.utils.ILoading
+import com.githubly.wanandroid.widget.LoadingStateView
 import com.gyf.barlibrary.ImmersionBar
+import com.yanzhenjie.loading.dialog.LoadingDialog
 
 /**
  * 类名：BaseActivity
@@ -15,7 +19,7 @@ import com.gyf.barlibrary.ImmersionBar
  * 修改时间：
  * 修改备注：
  */
-abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
+abstract class BaseActivity<out P : BasePresenter<*>> : AppCompatActivity(), BGASwipeBackHelper.Delegate, ILoading {
 
     protected var mBaseImmersionBar: ImmersionBar? = null
     protected var mSwipeBackHelper: BGASwipeBackHelper? = null
@@ -34,6 +38,15 @@ abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
      */
     abstract fun initData(): Unit
 
+    //kotlin 懒加载，在第一次使用Presenter时初始化，这种设计师针对一个View只针对一个Presenter。
+    //多个Presenter的情况此处不应该使用泛型
+    protected val mPresenter: P? by lazy { initPresenter() }
+
+    abstract fun initPresenter(): P?
+
+    private val mWaitDialog by lazy { LoadingDialog(this) }
+
+    protected val mLoadingStateView by lazy { LoadingStateView(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initSwipeBackFinish()
@@ -81,5 +94,21 @@ abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
     override fun onDestroy() {
         super.onDestroy()
         mBaseImmersionBar?.destroy()
+        dismissLoading()
+    }
+
+    override fun showLoading(msg: String) {
+        mWaitDialog.setMessage(msg)
+        mWaitDialog.setCancelable(false)
+        mWaitDialog.setCanceledOnTouchOutside(false)
+        if (!mWaitDialog.isShowing) {
+            mWaitDialog.show()
+        }
+    }
+
+    override fun dismissLoading() {
+        if (mWaitDialog.isShowing) {
+            mWaitDialog.dismiss()
+        }
     }
 }

@@ -22,7 +22,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/sp18"
             android:textStyle="bold"
-            app:layout_scrollFlags="scroll|enterAlways" />
+            app:layout_scrollFlags="scroll|snap" />
 
         <com.flyco.tablayout.SlidingTabLayout
             android:id="@+id/tabLayout"

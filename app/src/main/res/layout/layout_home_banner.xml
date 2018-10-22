@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="28dp"
         android:layout_marginStart="@dimen/d_12"
+        android:layout_marginTop="@dimen/d_8"
         android:layout_marginEnd="@dimen/d_12"
         android:background="@drawable/shape_round_3dp_ebebeb"
         android:drawableLeft="@mipmap/ic_search_article"
@@ -27,7 +28,7 @@
         android:layout_marginTop="@dimen/d_12"
         android:layout_marginEnd="@dimen/d_12"
         app:banner_indicatorGravity="bottom|right"
-        app:banner_pointAutoPlayInterval="4000"
         app:banner_placeholderDrawable="@mipmap/ic_empty_banner"
+        app:banner_pointAutoPlayInterval="4000"
         app:banner_pointDrawable="@drawable/selector_banner_point" />
 </LinearLayout>

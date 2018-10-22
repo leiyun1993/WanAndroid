@@ -2,14 +2,16 @@ package com.githubly.wanandroid.fragment
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.StaggeredGridLayoutManager
 import com.githubly.wanandroid.R
-import com.githubly.wanandroid.adapter.WXArticleAdapter
+import com.githubly.wanandroid.adapter.ProjectArticleAdapter
 import com.githubly.wanandroid.contract.IProjectPageContract
 import com.githubly.wanandroid.fragment.base.BaseFragment
 import com.githubly.wanandroid.model.ArticleItem
 import com.githubly.wanandroid.model.BaseListData
 import com.githubly.wanandroid.presenter.ProjectPagePresenter
 import kotlinx.android.synthetic.main.fragment_project_page.*
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.support.v4.withArguments
 
 /**
@@ -32,7 +34,7 @@ class ProjectPageFragment : BaseFragment<ProjectPagePresenter>(), IProjectPageCo
         }
     }
 
-    private val mAdapter by lazy { WXArticleAdapter() }
+    private val mAdapter by lazy { ProjectArticleAdapter() }
     private var page = 1
     private var userId = 99999
     override val inflateId: Int
@@ -44,9 +46,8 @@ class ProjectPageFragment : BaseFragment<ProjectPagePresenter>(), IProjectPageCo
     }
 
     override fun initView() {
-        mAdapter.userID = userId
         recyclerView.adapter = mAdapter
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         /*recyclerView.addItemDecoration(
                 HorizontalDividerItemDecoration.Builder(activity).color(act.resources.getColor(R.color.backgroundColor)).size(
                         dip(8)
@@ -56,8 +57,12 @@ class ProjectPageFragment : BaseFragment<ProjectPagePresenter>(), IProjectPageCo
             page++
             mPresenter?.getProjectArticle(userId, page)
         }, recyclerView)
-        mAdapter.setPreLoadNumber(2)
+        mAdapter.setPreLoadNumber(4)
         refreshLayout.setOnRefreshListener {
+            initData()
+        }
+        mAdapter.emptyView = mLoadingStateView
+        mLoadingStateView.setOnReloadClickListener {
             initData()
         }
     }
@@ -65,6 +70,7 @@ class ProjectPageFragment : BaseFragment<ProjectPagePresenter>(), IProjectPageCo
     override fun initPresenter(): ProjectPagePresenter? = ProjectPagePresenter(this)
 
     override fun initData() {
+        mLoadingStateView.loading()
         page = 1
         mPresenter?.getProjectArticle(userId, page)
     }
@@ -83,8 +89,17 @@ class ProjectPageFragment : BaseFragment<ProjectPagePresenter>(), IProjectPageCo
             mAdapter.loadMoreEnd()
         }
         mAdapter.setEnableLoadMore(!data.over)
+        mLoadingStateView.success()
     }
 
     override fun onArticleFailed(msg: String) {
+        if (page == 1) {
+            mAdapter.setNewData(mutableListOf())
+            mLoadingStateView.failed(msg)
+            refreshLayout.isRefreshing = false
+        } else {
+            toast(msg)
+            mAdapter.loadMoreComplete()
+        }
     }
 }

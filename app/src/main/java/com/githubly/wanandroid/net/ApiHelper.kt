@@ -21,15 +21,19 @@ object ApiHelper {
 
     init {
         val builder = OkHttpClient.Builder()
-        builder.connectTimeout(10, TimeUnit.SECONDS)
-        builder.readTimeout(10, TimeUnit.SECONDS)
-        builder.writeTimeout(10, TimeUnit.SECONDS)
-        builder.retryOnConnectionFailure(true)
-        builder.addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
+        builder.apply {
+            connectTimeout(10, TimeUnit.SECONDS)
+            readTimeout(10, TimeUnit.SECONDS)
+            writeTimeout(10, TimeUnit.SECONDS)
+            retryOnConnectionFailure(true)
+            addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
+            addInterceptor(ReadCookiesInterceptor())
+            addInterceptor(SaveCookiesInterceptor())
+        }
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("http://wanandroid.com")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(builder.build())
+                .baseUrl("http://wanandroid.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
         val retrofit = retrofitBuilder.build()
         api = retrofit.create(ApiService::class.java)
     }

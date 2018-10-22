@@ -38,8 +38,21 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
                     it.desc
                 }
                 timeTv.text = it.niceDate
-                typeTv.text = "${it.chapterName} / ${it.superChapterName}"
+                typeTv.text = getType(it)
+                heartIV.setColorFilter(context.resources.getColor(if (it.collect) {
+                    R.color.red
+                } else {
+                    R.color.gray_1
+                }))
             }
+        }
+    }
+
+    private fun getType(item: ArticleItem): String {
+        return if (item.superChapterName.isNullOrBlank()) {
+            item.chapterName
+        } else {
+            "${item.chapterName} / ${item.superChapterName}"
         }
     }
 

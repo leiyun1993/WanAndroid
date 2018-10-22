@@ -10,6 +10,7 @@ import com.githubly.wanandroid.model.ArticleItem
 import com.githubly.wanandroid.model.BaseListData
 import com.githubly.wanandroid.presenter.ArticlePagePresenter
 import kotlinx.android.synthetic.main.fragment_article_page.*
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.support.v4.withArguments
 
 /**
@@ -60,11 +61,16 @@ class ArticlePageFragment : BaseFragment<ArticlePagePresenter>(), IArticlePageCo
         refreshLayout.setOnRefreshListener {
             initData()
         }
+        mAdapter.emptyView = mLoadingStateView
+        mLoadingStateView.setOnReloadClickListener {
+            initData()
+        }
     }
 
     override fun initPresenter(): ArticlePagePresenter? = ArticlePagePresenter(this)
 
     override fun initData() {
+        mLoadingStateView.loading()
         page = 1
         mPresenter?.getWXArticle(userId, page)
     }
@@ -83,8 +89,17 @@ class ArticlePageFragment : BaseFragment<ArticlePagePresenter>(), IArticlePageCo
             mAdapter.loadMoreEnd()
         }
         mAdapter.setEnableLoadMore(!data.over)
+        mLoadingStateView.success()
     }
 
     override fun onArticleFailed(msg: String) {
+        if (page == 1) {
+            mAdapter.setNewData(mutableListOf())
+            mLoadingStateView.failed(msg)
+            refreshLayout.isRefreshing = false
+        } else {
+            toast(msg)
+            mAdapter.loadMoreComplete()
+        }
     }
 }

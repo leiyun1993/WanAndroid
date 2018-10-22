@@ -23,4 +23,18 @@
         <item name="android:textSize">11sp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="style_account_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/d_12</item>
+        <item name="android:paddingTop">@dimen/d_12</item>
+        <item name="android:paddingBottom">@dimen/d_12</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:drawableEnd">@mipmap/ic_arrow</item>
+    </style>
 </resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.yanzhenjie.loading.LoadingView
+        android:id="@+id/loadingView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/errorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_empty" />
+
+        <TextView
+            android:id="@+id/errorMsgTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d_10"
+            android:text="加载失败"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/sp14" />
+    </LinearLayout>
+</RelativeLayout>

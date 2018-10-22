@@ -30,10 +30,10 @@ class ApiCallBack<T>(val result: BaseResult<T>.() -> Unit) : Callback<BaseResult
 
     override fun onFailure(call: Call<BaseResult<T>>, throwable: Throwable) {
         val error = when (throwable) {
-            is SocketTimeoutException -> "您的网络不给力，请稍后再试"
-            is ConnectException -> "您当前的网络不通，请在网络恢复后再试"
-            is UnknownHostException -> "您当前的网络不通，请在网络恢复后再试"
-            else -> "当前服务异常，请稍后再试"
+            is SocketTimeoutException -> "网络不给力！"
+            is ConnectException -> "当前的网络不通！"
+            is UnknownHostException -> "当前的网络不通！"
+            else -> "当前服务异常！"
         }
         BaseResult<T>().apply {
             errorCode = -1

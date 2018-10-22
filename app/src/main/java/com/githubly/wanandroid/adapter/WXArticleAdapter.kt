@@ -32,11 +32,6 @@ class WXArticleAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.
                 nameHeadTV.setBackgroundResource(getRandomColor())
                 nameTv.text = it.author
                 titleTv.text = it.title
-                descTv.text = if (it.desc.isNullOrBlank()) {
-                    it.link
-                } else {
-                    it.desc
-                }
                 timeTv.text = it.niceDate
             }
         }

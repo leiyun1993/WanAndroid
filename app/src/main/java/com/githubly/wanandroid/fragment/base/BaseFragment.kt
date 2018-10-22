@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.githubly.wanandroid.presenter.base.BasePresenter
+import com.githubly.wanandroid.utils.ILoading
+import com.githubly.wanandroid.widget.LoadingStateView
+import com.yanzhenjie.loading.dialog.LoadingDialog
+import org.jetbrains.anko.support.v4.act
 
 /**
  * 类名：BaseFragment
@@ -16,7 +20,7 @@ import com.githubly.wanandroid.presenter.base.BasePresenter
  * 修改时间：
  * 修改备注：
  */
-abstract class BaseFragment<out P : BasePresenter<*>> : Fragment() {
+abstract class BaseFragment<out P : BasePresenter<*>> : Fragment(), ILoading {
     /**
      * 当前页面需要加载的layoutId，等价setContentView
      */
@@ -38,6 +42,10 @@ abstract class BaseFragment<out P : BasePresenter<*>> : Fragment() {
 
     abstract fun initPresenter(): P?
 
+    private val mWaitDialog by lazy { LoadingDialog(act) }
+
+    protected val mLoadingStateView by lazy { LoadingStateView(act) }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(inflateId, container, false)
     }
@@ -52,5 +60,19 @@ abstract class BaseFragment<out P : BasePresenter<*>> : Fragment() {
         super.onDestroyView()
         //view和presenter解绑
         mPresenter?.onDestroy()
+        dismissLoading()
+    }
+
+    override fun showLoading(msg: String) {
+        mWaitDialog.setMessage(msg)
+        if (!mWaitDialog.isShowing) {
+            mWaitDialog.show()
+        }
+    }
+
+    override fun dismissLoading() {
+        if (mWaitDialog.isShowing) {
+            mWaitDialog.dismiss()
+        }
     }
 }

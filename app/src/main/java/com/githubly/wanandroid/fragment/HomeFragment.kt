@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.layout_home_banner.view.*
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.dip
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * HomeFragment
@@ -60,13 +61,21 @@ class HomeFragment : BaseFragment<HomePresenter>(), IHomeContract.View {
         refreshLayout.setOnRefreshListener {
             initData()
         }
+        mAdapter.setOnItemClickListener { adapter, view, position ->
+            toast("position:$position")
+        }
+        mAdapter.emptyView = mLoadingStateView
+        mLoadingStateView.setOnReloadClickListener {
+            initData()
+        }
     }
 
     override fun initPresenter(): HomePresenter? = HomePresenter(this)
 
     override fun initData() {
-        mPresenter?.getBanner()
+        mLoadingStateView.loading()
         page = 1
+        mPresenter?.getBanner()
         mPresenter?.getHomeArticle(page)
     }
 
@@ -95,9 +104,17 @@ class HomeFragment : BaseFragment<HomePresenter>(), IHomeContract.View {
             mAdapter.loadMoreEnd()
         }
         mAdapter.setEnableLoadMore(!data.over)
+        mLoadingStateView.success()
     }
 
     override fun onArticleFailed(msg: String) {
-
+        if (page == 1) {
+            mAdapter.setNewData(mutableListOf())
+            mLoadingStateView.failed(msg)
+            refreshLayout.isRefreshing = false
+        } else {
+            toast(msg)
+            mAdapter.loadMoreComplete()
+        }
     }
 }
