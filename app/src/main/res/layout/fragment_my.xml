@@ -87,6 +87,7 @@
                 android:background="@color/line_color" />
 
             <TextView
+                android:id="@+id/btnTodo"
                 style="@style/style_account_item"
                 android:drawableStart="@mipmap/ic_todo"
                 android:text="TODO工具" />
@@ -97,6 +98,7 @@
                 android:background="@color/line_color" />
 
             <TextView
+                android:id="@+id/btnKnowSystem"
                 style="@style/style_account_item"
                 android:drawableStart="@mipmap/ic_knowledge_system"
                 android:text="知识体系" />
@@ -117,6 +119,7 @@
                 android:background="@color/line_color" />
 
             <TextView
+                android:id="@+id/btnAbout"
                 style="@style/style_account_item"
                 android:drawableStart="@mipmap/ic_about"
                 android:text="关于" />

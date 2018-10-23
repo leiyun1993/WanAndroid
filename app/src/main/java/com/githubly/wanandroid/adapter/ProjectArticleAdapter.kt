@@ -1,5 +1,6 @@
 package com.githubly.wanandroid.adapter
 
+import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.githubly.wanandroid.R
@@ -34,6 +35,11 @@ class ProjectArticleAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.la
                 titleTV.text = it.title
                 timeTv.text = it.niceDate
                 envelopePicIV.loadImage(it.envelopePic)
+                collectTagTv.visibility = if (it.collect) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
             }
         }
     }

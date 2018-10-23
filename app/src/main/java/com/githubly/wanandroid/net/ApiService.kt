@@ -55,4 +55,17 @@ interface ApiService {
     //收藏文章列表
     @GET("/lg/collect/list/{page}/json")
     fun getCollectList(@Path("page") page: Int): Call<BaseResult<BaseListData<ArticleItem>>>
+
+    //收藏文章
+    @POST("/lg/collect/{id}/json")
+    fun collect(@Path("id") id: Int): Call<BaseResult<String>>
+
+    //取消收藏文章
+    @POST("/lg/uncollect_originId/{id}/json")
+    fun uncollect(@Path("id") id: Int): Call<BaseResult<String>>
+
+    //取消收藏文章--收藏页面
+    @FormUrlEncoded
+    @POST("/lg/uncollect/{id}/json")
+    fun unCollectPage(@Path("id") id: Int, @Field("originId") originId: Int): Call<BaseResult<String>>
 }

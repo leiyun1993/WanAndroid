@@ -80,6 +80,14 @@
                     android:textSize="@dimen/sp12" />
             </LinearLayout>
         </LinearLayout>
-
+        <TextView
+            android:id="@+id/collectTagTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已收藏"
+            android:textSize="8sp"
+            android:textColor="@color/white"
+            android:padding="@dimen/d_2"
+            android:background="@drawable/shape_project_collect"/>
     </android.support.v7.widget.CardView>
 </FrameLayout>

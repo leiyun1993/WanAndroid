@@ -36,10 +36,15 @@ data class ArticleItem(
     @SerializedName("type") var type: Int = 0,
     @SerializedName("userId") var userId: Int = 0,
     @SerializedName("visible") var visible: Int = 0,
-    @SerializedName("zan") var zan: Int = 0
+    @SerializedName("zan") var zan: Int = 0,
+    @SerializedName("originId") var originId: Int = 0
 )
 
 data class WChatArticleTag(
     @SerializedName("name") var name: String = "",
     @SerializedName("url") var url: String = ""
 )
+
+data class EventRemoveCollectPageArticle(var id: Int)
+
+data class EventArticleCollectChange(var id: Int,var collect: Boolean)

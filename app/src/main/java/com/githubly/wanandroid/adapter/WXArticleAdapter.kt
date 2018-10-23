@@ -33,6 +33,11 @@ class WXArticleAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.
                 nameTv.text = it.author
                 titleTv.text = it.title
                 timeTv.text = it.niceDate
+                heartIV.setColorFilter(context.resources.getColor(if (it.collect) {
+                    R.color.red
+                } else {
+                    R.color.gray_1
+                }))
             }
         }
     }
