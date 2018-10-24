@@ -1,5 +1,6 @@
 package com.githubly.wanandroid.net
 
+import com.githubly.wanandroid.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -26,14 +27,19 @@ object ApiHelper {
             readTimeout(10, TimeUnit.SECONDS)
             writeTimeout(10, TimeUnit.SECONDS)
             retryOnConnectionFailure(true)
-            addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
+            addInterceptor(HttpLoggingInterceptor().apply {
+                level = if (BuildConfig.DEBUG)
+                    HttpLoggingInterceptor.Level.BODY
+                else
+                    HttpLoggingInterceptor.Level.NONE
+            })
             addInterceptor(ReadCookiesInterceptor())
             addInterceptor(SaveCookiesInterceptor())
         }
         val retrofitBuilder = Retrofit.Builder()
-                .baseUrl("http://wanandroid.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(builder.build())
+            .baseUrl("http://wanandroid.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(builder.build())
         val retrofit = retrofitBuilder.build()
         api = retrofit.create(ApiService::class.java)
     }

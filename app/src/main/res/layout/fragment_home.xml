@@ -18,7 +18,7 @@
             android:fontFamily="@font/font_title"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/d_12"
-            android:text="首页"
+            android:text="@string/string_home"
             android:textColor="@color/black"
             android:textSize="@dimen/sp18"
             android:textStyle="bold" />

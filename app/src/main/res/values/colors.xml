@@ -5,6 +5,11 @@
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffffff</color>
     <color name="black">#333333</color>
+    <color name="colorBlack10">#19000000</color>
+    <color name="colorBlack20">#33000000</color>
+    <color name="colorBlack40">#66000000</color>
+    <color name="colorBlack60">#99000000</color>
+    <color name="colorBlack80">#cc000000</color>
     <color name="black_11">#11333333</color>
     <color name="black_1">#222222</color>
     <color name="gray">#666666</color>
@@ -16,4 +21,5 @@
     <color name="green">#54b3b3</color>
     <color name="blue">#4d92dc</color>
     <color name="orange">#ff8635</color>
+    <color name="transparent">@android:color/transparent</color>
 </resources>

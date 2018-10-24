@@ -4,6 +4,8 @@ import android.app.Application
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper
 import com.githubly.wanandroid.model.User
 import com.githubly.wanandroid.utils.UserInfoHelper
+import com.tencent.bugly.Bugly
+import com.tencent.bugly.beta.Beta
 import kotlin.properties.Delegates
 
 /**
@@ -49,6 +51,15 @@ class App : Application() {
         mAppContext = this
         UserInfoHelper.init(this)
         BGASwipeBackHelper.init(this, null)
+        initUpdate()
+    }
+
+    private fun initUpdate() {
+        Beta.enableHotfix = false
+        Beta.enableNotification = true
+        Beta.autoCheckUpgrade = true
+        Beta.canShowUpgradeActs.add(MainActivity::class.java)
+        Bugly.init(applicationContext, BuildConfig.BuglyID, BuildConfig.DEBUG)
     }
 
 }

@@ -17,7 +17,7 @@
             android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/d_12"
-            android:text="项目"
+            android:text="@string/string_project"
             android:textColor="@color/black"
             android:textSize="@dimen/sp18"
             android:textStyle="bold"

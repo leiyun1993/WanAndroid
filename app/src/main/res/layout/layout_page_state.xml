@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d_10"
-            android:text="加载失败"
+            android:text="@string/string_load_failed"
             android:textColor="@color/gray"
             android:textSize="@dimen/sp14" />
     </LinearLayout>

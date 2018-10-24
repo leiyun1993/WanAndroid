@@ -1,6 +1,27 @@
 <resources>
-    <string name="app_name">WanAndroid</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">玩Android</string>
+    <string name="string_collect_title">我的收藏</string>
+    <string name="string_login_title">登录/注册</string>
+    <string name="string_home">首页</string>
+    <string name="string_article">文章</string>
+    <string name="string_project">项目</string>
+    <string name="string_my">我的</string>
+    <string name="string_share">分享</string>
+    <string name="string_collect">收藏</string>
+    <string name="string_copy_url">复制链接</string>
+    <string name="string_open_browser">浏览器打开</string>
+    <string name="string_cancel">取消</string>
+    <string name="string_todo">TODO工具</string>
+    <string name="string_know_system">知识体系</string>
+    <string name="string_update">更新</string>
+    <string name="string_about">关于</string>
+    <string name="string_logout">退出登录</string>
+    <string name="string_collected">已收藏</string>
+    <string name="string_search">搜索</string>
+    <string name="string_login">登录</string>
+    <string name="string_register">注册</string>
+    <string name="string_user_name">用户名</string>
+    <string name="string_pwd">密码</string>
+    <string name="string_re_pwd">确认密码</string>
+    <string name="string_load_failed">加载失败</string>
 </resources>

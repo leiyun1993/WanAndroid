@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.LinearLayout
+import com.githubly.wanandroid.App
 import com.githubly.wanandroid.R
 import com.githubly.wanandroid.activity.base.BaseActivity
 import com.githubly.wanandroid.contract.IContentContract
@@ -178,14 +179,18 @@ class WebActivity : BaseActivity<ContentPresenter>(), IContentContract.View {
                     share(url, title)
                 }
                 TYPE_COLLECT -> {
-                    if (!collect) {
-                        mPresenter?.articleCollect(id)
-                    } else {
-                        if (originId == 0) {
-                            mPresenter?.articleUncollect(id)
+                    if (App.instance.isLogin) {
+                        if (!collect) {
+                            mPresenter?.articleCollect(id)
                         } else {
-                            mPresenter?.articleUncollectPage(id, originId)
+                            if (originId == 0) {
+                                mPresenter?.articleUncollect(id)
+                            } else {
+                                mPresenter?.articleUncollectPage(id, originId)
+                            }
                         }
+                    } else {
+                        LoginActivity.active(this)
                     }
                 }
                 TYPE_COPY -> {

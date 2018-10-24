@@ -34,7 +34,7 @@
                     android:id="@+id/tv_home"
                     style="@style/mainBottomTabStyle"
                     android:drawableTop="@drawable/selector_tab_home"
-                    android:text="首页" />
+                    android:text="@string/string_home" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -48,7 +48,7 @@
                     android:id="@+id/tv_order"
                     style="@style/mainBottomTabStyle"
                     android:drawableTop="@drawable/selector_tab_article"
-                    android:text="文章" />
+                    android:text="@string/string_article" />
 
         </RelativeLayout>
 
@@ -64,7 +64,7 @@
                     android:id="@+id/tv_cheats"
                     style="@style/mainBottomTabStyle"
                     android:drawableTop="@drawable/selector_tab_category"
-                    android:text="项目" />
+                    android:text="@string/string_project" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -78,7 +78,7 @@
                     android:id="@+id/tv_my"
                     style="@style/mainBottomTabStyle"
                     android:drawableTop="@drawable/selector_tab_my"
-                    android:text="我的" />
+                    android:text="@string/string_my" />
         </RelativeLayout>
     </LinearLayout>
 

@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="我的收藏"
+                android:text="@string/string_collect_title"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp16" />
         </RelativeLayout>

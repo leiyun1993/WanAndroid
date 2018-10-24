@@ -12,11 +12,12 @@
         android:layout_marginTop="@dimen/d_8"
         android:layout_marginEnd="@dimen/d_12"
         android:background="@drawable/shape_round_3dp_ebebeb"
-        android:drawableLeft="@mipmap/ic_search_article"
+        android:drawableStart="@mipmap/ic_search_article"
         android:drawablePadding="@dimen/d_8"
         android:gravity="center_vertical"
         android:paddingStart="@dimen/d_15"
-        android:text="搜索"
+        android:paddingEnd="@dimen/d_15"
+        android:text="@string/string_search"
         android:textColor="@color/gray_1"
         android:textSize="@dimen/sp14" />
 

@@ -1,5 +1,6 @@
 package com.githubly.wanandroid.net
 
+import com.githubly.wanandroid.App
 import com.githubly.wanandroid.model.BaseResult
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +23,12 @@ class ApiCallBack<T>(val result: BaseResult<T>.() -> Unit) : Callback<BaseResult
     override fun onResponse(call: Call<BaseResult<T>>, response: Response<BaseResult<T>>) {
         val code = response.code()
         if (code in 200..299) {
-            response.body()!!.result()
+            val errorCode = response.body()?.errorCode
+            if (errorCode == -1001) {    //需要重新登录
+                App.instance.user = null
+            } else {
+                response.body()!!.result()
+            }
         } else {
             onFailure(call, RuntimeException("response error,detail = " + response.raw().toString()))
         }

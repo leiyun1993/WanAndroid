@@ -2,6 +2,9 @@ package com.githubly.wanandroid.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
 import android.support.v4.app.Fragment
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -38,4 +41,23 @@ fun Fragment.hideSoftInput(view: View? = getView()) {
 fun Fragment.showSoftInput(view: View? = getView()) {
     val inputManger = act.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     inputManger.showSoftInput(view, 0)
+}
+
+fun Context.toAppDetail(){
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+    intent.addCategory(Intent.CATEGORY_DEFAULT)
+    intent.data = Uri.fromParts("package", packageName, null)
+    startActivity(intent)
+}
+fun Fragment.toAppDetail(requestCode:Int = -1){
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+    intent.addCategory(Intent.CATEGORY_DEFAULT)
+    intent.data = Uri.fromParts("package", activity?.packageName, null)
+    startActivityForResult(intent,requestCode)
+}
+fun Activity.toAppDetail(requestCode:Int = -1){
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+    intent.addCategory(Intent.CATEGORY_DEFAULT)
+    intent.data = Uri.fromParts("package", packageName, null)
+    startActivityForResult(intent,requestCode)
 }

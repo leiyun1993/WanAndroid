@@ -11,13 +11,13 @@ import com.githubly.wanandroid.fragment.MyFragment
 import com.githubly.wanandroid.fragment.ProjectFragment
 import com.githubly.wanandroid.presenter.base.BasePresenter
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 /**
  * MainActivity
  */
 class MainActivity : BaseActivity<BasePresenter<*>>(), View.OnClickListener, ViewPager.OnPageChangeListener {
     private val fragments = mutableListOf<Fragment>()
-
     private var bottomViews = mutableListOf<View>()
     override val inflateId: Int
         get() = R.layout.activity_main
@@ -78,6 +78,17 @@ class MainActivity : BaseActivity<BasePresenter<*>>(), View.OnClickListener, Vie
 
     override fun onPageSelected(p0: Int) {
         setBottomBarSelect(p0)
+    }
+
+    private var lastClickTime = 0L
+    override fun onBackPressed() {
+        val currentTimeMillis = System.currentTimeMillis()
+        if (currentTimeMillis - lastClickTime > 3000) {
+            toast("再点就退出了...")
+            lastClickTime = currentTimeMillis
+        } else {
+            super.onBackPressed()
+        }
     }
 
 }

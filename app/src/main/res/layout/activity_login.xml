@@ -27,9 +27,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="登录/注册"
+                android:text="@string/string_login_title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/d_16" />
+                android:textSize="@dimen/sp16" />
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 

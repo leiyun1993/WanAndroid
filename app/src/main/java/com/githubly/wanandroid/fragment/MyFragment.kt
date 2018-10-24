@@ -11,7 +11,7 @@ import com.githubly.wanandroid.contract.ILogoutContract
 import com.githubly.wanandroid.fragment.base.BaseFragment
 import com.githubly.wanandroid.model.User
 import com.githubly.wanandroid.presenter.LogoutPresenter
-import com.githubly.wanandroid.widget.OtherBottomDialog
+import com.tencent.bugly.beta.Beta
 import kotlinx.android.synthetic.main.fragment_my.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -47,17 +47,24 @@ class MyFragment : BaseFragment<LogoutPresenter>(), ILogoutContract.View {
             mPresenter?.logout()
         }
         btnCollectList.setOnClickListener {
-            CollectListActivity.active(activity!!)
+            if (App.instance.isLogin) {
+                CollectListActivity.active(activity!!)
+            } else {
+                LoginActivity.active(act)
+            }
         }
         btnAbout.setOnClickListener {
             val link = "file:///android_asset/web/about.html"
-            WebActivity.active(act, link,-1,"wanAndroid","",false)
+            WebActivity.active(act, link, -1, "wanAndroid", "", false)
         }
         btnTodo.setOnClickListener {
             toast("待完成...")
         }
         btnKnowSystem.setOnClickListener {
             toast("待完成...")
+        }
+        btnUpdate.setOnClickListener {
+            Beta.checkUpgrade()
         }
     }
 

@@ -52,7 +52,7 @@
                     android:layout_marginStart="@dimen/d_12"
                     android:background="@drawable/shape_head_red"
                     android:gravity="center"
-                    android:text="N"
+                    tools:text="N"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp12" />
 
@@ -65,7 +65,7 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="name"
+                    tools:text="name"
                     android:textColor="@color/black_1"
                     android:textSize="@dimen/sp12" />
 
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="@dimen/d_12"
-                    android:text="name"
+                    tools:text="name"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/sp12" />
             </LinearLayout>
@@ -84,7 +84,7 @@
             android:id="@+id/collectTagTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="已收藏"
+            android:text="@string/string_collected"
             android:textSize="8sp"
             android:textColor="@color/white"
             android:padding="@dimen/d_2"
