@@ -24,8 +24,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/sp12"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line"
-        app:layout_gravity="center" />
+        app:layout_constraintTop_toBottomOf="@+id/line"/>
 
 
     <TextView

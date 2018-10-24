@@ -15,12 +15,11 @@
         android:layout_marginTop="@dimen/d_8"
         android:background="@drawable/shape_head_red"
         android:gravity="center"
-        tools:text="N"
         android:textColor="@color/white"
         android:textSize="@dimen/sp12"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_gravity="center" />
+        tools:text="N" />
 
 
     <TextView
@@ -28,12 +27,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        tools:text="name"
         android:textColor="@color/black_1"
         android:textSize="@dimen/sp12"
         app:layout_constraintBottom_toBottomOf="@+id/nameHeadTV"
         app:layout_constraintLeft_toRightOf="@+id/nameHeadTV"
-        app:layout_constraintTop_toTopOf="@+id/nameHeadTV" />
+        app:layout_constraintTop_toTopOf="@+id/nameHeadTV"
+        tools:text="name" />
 
     <TextView
         android:id="@+id/typeTv"
@@ -41,12 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="@dimen/d_12"
-        tools:text="name"
         android:textColor="@color/gray"
         android:textSize="@dimen/sp12"
         app:layout_constraintBottom_toBottomOf="@+id/nameHeadTV"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nameHeadTV" />
+        app:layout_constraintTop_toTopOf="@+id/nameHeadTV"
+        tools:text="name" />
 
     <TextView
         android:id="@+id/titleTv"
