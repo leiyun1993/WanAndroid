@@ -22,7 +22,7 @@
 * bugly(更新、统计、异常上报)
 * font（静蕾体）
 
-# APK下载(5.0+)
+## APK下载(5.0+)
 
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/QRCode.png)
  
@@ -40,7 +40,7 @@
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/9.png)
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/10.png)
 
-# 部分功能解析
+## 部分功能解析
 
 ### 1、MVP
 极简的MVP设计，这是此前自己参考一些项目之后写的[MVPSample](https://github.com/leiyun1993/AndroidNotes),适合这种小项目玩耍
@@ -136,7 +136,7 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
 
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/12.jpg)
 
-# 版本信息
+## 版本信息
 ### v1.1.0.0(TODO)
 - [ ] 知识体系
 - [ ] TODO工具
@@ -155,12 +155,12 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
 - [x] 登录注册
 - [x] 我的收藏
 
-# TKS
+## TKS
 * 感谢鸿洋大神创建了这么好的学习网站[WanAndroid](http://www.wanandroid.com)
 * 感谢大神百忙之中抽空写的[开放api](https://github.com/hongyangAndroid/wanandroid)
 * 感谢项目中使用到的各种库的无私奉献
 
-# License
+## License
 ```text
 Copyright 2018 YunLei
 
