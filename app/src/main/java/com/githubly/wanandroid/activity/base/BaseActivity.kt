@@ -38,7 +38,7 @@ abstract class BaseActivity<out P : BasePresenter<*>> : AppCompatActivity(), BGA
      */
     abstract fun initData(): Unit
 
-    //kotlin 懒加载，在第一次使用Presenter时初始化，这种设计师针对一个View只针对一个Presenter。
+    //kotlin 懒加载，在第一次使用Presenter时初始化，这种设计是针对一个View只针对一个Presenter。
     //多个Presenter的情况此处不应该使用泛型
     protected val mPresenter: P? by lazy { initPresenter() }
 

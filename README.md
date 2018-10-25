@@ -20,6 +20,7 @@
  >* retrofit2:converter-gson(GsonConverterFactory)
  >* okhttp3:logging-interceptor(HttpLoggingInterceptor)
  >* bugly(更新、统计、异常上报)
+ >* font（静蕾体）
  
 ## 项目截图
 
@@ -34,3 +35,99 @@
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/8.png)
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/9.png)
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/10.png)
+
+# 部分功能解析
+
+### 1、MVP
+极简的MVP设计，这是此前自己参考一些项目之后写的[MVPSample](https://github.com/leiyun1993/AndroidNotes),适合这种小项目玩耍
+```kotlin
+abstract class BaseActivity<out P : BasePresenter<*>> : AppCompatActivity(){
+    protected val mPresenter: P? by lazy { initPresenter() }
+}
+```
+```kotlin
+abstract class BasePresenter<T : IView>(view: T) {
+    protected var mView: T? = view
+    
+    fun onDestroy() {
+        mView = null
+    }
+}
+```
+```kotlin
+interface IArticlePageContract {
+
+    interface Presenter{
+        fun getxxxx()
+    }
+
+    interface View:IView{
+        fun onxxxxSuccess(data: xxxx)
+        fun onxxxxFailed(msg: String)
+    }
+}
+```
+### 2、网络请求
+普通的**Retrofit**封装，使用**GsonConverterFactory**解析数据，保持登录使用的是[ReadCookiesInterceptor](https://github.com/leiyun1993/WanAndroid/blob/master/app/src/main/java/com/githubly/wanandroid/net/ReadCookiesInterceptor.kt)和[SaveCookiesInterceptor](https://github.com/leiyun1993/WanAndroid/blob/master/app/src/main/java/com/githubly/wanandroid/net/SaveCookiesInterceptor.kt)读取和保存Cookie。
+ApiCallBack使用lambda回调，并进一步简化回调信息,合并为BaseResult同意处理。
+```kotlin
+class ApiCallBack<T>(val result: BaseResult<T>.() -> Unit) : Callback<BaseResult<T>> {
+
+    override fun onResponse(call: Call<BaseResult<T>>, response: Response<BaseResult<T>>) {
+        val code = response.code()
+        if (code in 200..299) {
+            val errorCode = response.body()?.errorCode
+            if (errorCode == -1001) {    //需要重新登录
+                App.instance.user = null
+            } else {
+                response.body()!!.result()
+            }
+        } else {
+            onFailure(call, RuntimeException("response error,detail = " + response.raw().toString()))
+        }
+    }
+
+    override fun onFailure(call: Call<BaseResult<T>>, throwable: Throwable) {
+        val error = when (throwable) {
+            is SocketTimeoutException -> "网络不给力！"
+            is ConnectException -> "当前的网络不通！"
+            is UnknownHostException -> "当前的网络不通！"
+            else -> "当前服务异常！"
+            //可进一步细分错误类型
+        }
+        BaseResult<T>().apply {
+            errorCode = -1
+            errorMsg = error
+        }.result()
+    }
+}
+```
+这样处理回调的时候就可以很简单的如下处理：
+```kotlin
+ApiHelper.api.xxxx(xxxx).enqueue(ApiCallBack {
+    if (isSuccess) {
+        mView?.onXxxxSuccess(data!!)
+    } else {
+        mView?.onXxxxFailed(errorMsg)
+    }
+})
+```
+### 3、推荐一波[BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+这个包含了自动loadmore，emptyView，header，footer，moreType等一些列很实用的功能，使用后RecyclerView的适配器如下，非常方便的使用：
+```kotlin
+class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_home_article) {
+
+    override fun convert(helper: BaseViewHolder?, item: ArticleItem?) {
+        val itemView = helper?.itemView
+        itemView?.apply {
+            item?.let {
+                //do something
+            }
+        }
+    }
+}
+```
+### 4、关于页面
+这是个加载的本地Html，是抠了[WanAndroid-About](http://www.wanandroid.com/about)然后加上了关于本App的介绍，使用了自己仅有CSS技术做了一个简单的手机适配。（最近大家也知道，感觉Android越来越不景气了，大家还从事android的一定要拓展，要嘛更深，要嘛更广~~~说实话好想转行）
+
+![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/12.png)

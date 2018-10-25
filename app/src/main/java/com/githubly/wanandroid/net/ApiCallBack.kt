@@ -40,6 +40,7 @@ class ApiCallBack<T>(val result: BaseResult<T>.() -> Unit) : Callback<BaseResult
             is ConnectException -> "当前的网络不通！"
             is UnknownHostException -> "当前的网络不通！"
             else -> "当前服务异常！"
+            //可进一步细分错误类型
         }
         BaseResult<T>().apply {
             errorCode = -1
