@@ -7,20 +7,20 @@
 ## 简介
 
 本项目使用 kotlin+mvp+retrofit+anko+eventbus+glide，用的都是一些很主流的框架。当然项目中其实没有太多的技术难点，主要是当你有一项技能之后，不做点自己的东西，手就会痒~~
- >* [kotlin](https://github.com/JetBrains/kotlin)
- >* [anko](https://github.com/Kotlin/anko)
- >* [retrofit2](https://github.com/square/retrofit)
- >* [okhttp3](https://github.com/square/okhttp)
- >* [BGABanner](https://github.com/bingoogolapple/BGABanner-Android)
- >* [BGASwipeBack](https://github.com/bingoogolapple/BGASwipeBackLayout-Android)
- >* [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
- >* [glide](https://github.com/bumptech/glide)
- >* [eventbus](https://github.com/greenrobot/EventBus)
- >* [PermissionsDispatcher](https://github.com/permissions-dispatcher/PermissionsDispatcher)(更新功能需要文件读写权限)
- >* retrofit2:converter-gson(GsonConverterFactory)
- >* okhttp3:logging-interceptor(HttpLoggingInterceptor)
- >* bugly(更新、统计、异常上报)
- >* font（静蕾体）
+* [kotlin](https://github.com/JetBrains/kotlin)
+* [anko](https://github.com/Kotlin/anko)
+* [retrofit2](https://github.com/square/retrofit)
+* [okhttp3](https://github.com/square/okhttp)
+* [BGABanner](https://github.com/bingoogolapple/BGABanner-Android)
+* [BGASwipeBack](https://github.com/bingoogolapple/BGASwipeBackLayout-Android)
+* [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+* [glide](https://github.com/bumptech/glide)
+* [eventbus](https://github.com/greenrobot/EventBus)
+* [PermissionsDispatcher](https://github.com/permissions-dispatcher/PermissionsDispatcher)(更新功能需要文件读写权限)
+* retrofit2:converter-gson(GsonConverterFactory)
+* okhttp3:logging-interceptor(HttpLoggingInterceptor)
+* bugly(更新、统计、异常上报)
+* font（静蕾体）
  
 ## 项目截图
 
@@ -150,6 +150,11 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
 - [x] 项目
 - [x] 登录注册
 - [x] 我的收藏
+
+# TKS
+* 感谢鸿洋大神创建了这么好的学习网站[WanAndroid](http://www.wanandroid.com)
+* 感谢大神百忙之中抽空写的[开放api](https://github.com/hongyangAndroid/wanandroid)
+* 感谢项目中使用到的各种库的无私奉献
 
 # License
 ```text
