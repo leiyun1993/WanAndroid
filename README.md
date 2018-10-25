@@ -130,4 +130,40 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
 ### 4、关于页面
 这是个加载的本地Html，是抠了[WanAndroid-About](http://www.wanandroid.com/about)然后加上了关于本App的介绍，使用了自己仅有CSS技术做了一个简单的手机适配。（最近大家也知道，感觉Android越来越不景气了，大家还从事android的一定要拓展，要嘛更深，要嘛更广~~~说实话好想转行）
 
-![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/12.png)
+![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/12.jpg)
+
+# 版本信息
+### v1.1.0.0(TODO)
+- [ ] 知识体系
+- [ ] TODO工具
+- [ ] 搜索功能
+- [ ] 优化项目页瀑布流显示
+### v1.0.0.3
+- [x] 引入bugly，增加升级功能
+### v1.0.0.2
+- [x] 删除部分无用的库
+### v1.0.0.1
+- [x] 优化title显示
+### v1.0.0.0
+- [x] 首页文章与Banner
+- [x] 微信文章
+- [x] 项目
+- [x] 登录注册
+- [x] 我的收藏
+
+# License
+```text
+Copyright 2018 YunLei
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
