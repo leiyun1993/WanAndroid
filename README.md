@@ -21,6 +21,10 @@
 * okhttp3:logging-interceptor(HttpLoggingInterceptor)
 * bugly(更新、统计、异常上报)
 * font（静蕾体）
+
+# APK下载(5.0+)
+
+![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/QRCode.png)
  
 ## 项目截图
 
