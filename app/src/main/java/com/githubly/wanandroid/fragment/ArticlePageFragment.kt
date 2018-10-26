@@ -54,8 +54,7 @@ class ArticlePageFragment : BaseFragment<ArticlePagePresenter>(), IArticlePageCo
 
     override fun initView() {
         mAdapter.userID = userId
-        mAdapter.bindToRecyclerView(recyclerView)
-        mAdapter.disableLoadMoreIfNotFullPage()
+        recyclerView.adapter = mAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
         /*recyclerView.addItemDecoration(
                 HorizontalDividerItemDecoration.Builder(activity).color(act.resources.getColor(R.color.backgroundColor)).size(

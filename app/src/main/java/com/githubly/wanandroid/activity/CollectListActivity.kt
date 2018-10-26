@@ -39,8 +39,7 @@ class CollectListActivity : BaseActivity<CollectListPresenter>(), ICollectListCo
     override fun initView() {
         EventBus.getDefault().register(this)
         btnBack.setOnClickListener { onBackPressed() }
-        mAdapter.bindToRecyclerView(recyclerView)
-        mAdapter.disableLoadMoreIfNotFullPage()
+        recyclerView.adapter = mAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.addItemDecoration(
                 HorizontalDividerItemDecoration.Builder(this).color(act.resources.getColor(R.color.backgroundColor)).size(

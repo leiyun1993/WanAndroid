@@ -46,15 +46,14 @@ class HomeFragment : BaseFragment<HomePresenter>(), IHomeContract.View {
     override fun initView() {
         val bannerView = View.inflate(activity, R.layout.layout_home_banner, null)
         mBannerView = bannerView.bannerView
-        mAdapter.bindToRecyclerView(recyclerView)
-        mAdapter.disableLoadMoreIfNotFullPage()
+        recyclerView.adapter = mAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.addItemDecoration(
-                HorizontalDividerItemDecoration.Builder(activity).color(act.resources.getColor(R.color.backgroundColor)).size(
-                        dip(8)
-                ).visibilityProvider { position, parent ->
-                    position == 0
-                }.build()
+            HorizontalDividerItemDecoration.Builder(activity).color(act.resources.getColor(R.color.backgroundColor)).size(
+                dip(8)
+            ).visibilityProvider { position, parent ->
+                position == 0
+            }.build()
         )
         mAdapter.addHeaderView(bannerView)
         mBannerView.setAdapter { banner, itemView, model, position ->

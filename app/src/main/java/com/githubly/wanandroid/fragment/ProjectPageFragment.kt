@@ -53,8 +53,7 @@ class ProjectPageFragment : BaseFragment<ProjectPagePresenter>(), IProjectPageCo
     }
 
     override fun initView() {
-        mAdapter.bindToRecyclerView(recyclerView)
-        mAdapter.disableLoadMoreIfNotFullPage()
+        recyclerView.adapter = mAdapter
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         /*recyclerView.addItemDecoration(
                 HorizontalDividerItemDecoration.Builder(activity).color(act.resources.getColor(R.color.backgroundColor)).size(
