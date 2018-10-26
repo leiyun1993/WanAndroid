@@ -24,4 +24,5 @@
     <string name="string_pwd">密码</string>
     <string name="string_re_pwd">确认密码</string>
     <string name="string_load_failed">加载失败</string>
+    <string name="string_confirm">确定</string>
 </resources>
