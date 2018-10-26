@@ -3,10 +3,12 @@ package com.githubly.wanandroid.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Point
 import android.net.Uri
 import android.provider.Settings
 import android.support.v4.app.Fragment
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import org.jetbrains.anko.support.v4.act
 
@@ -60,4 +62,23 @@ fun Activity.toAppDetail(requestCode:Int = -1){
     intent.addCategory(Intent.CATEGORY_DEFAULT)
     intent.data = Uri.fromParts("package", packageName, null)
     startActivityForResult(intent,requestCode)
+}
+/**
+ * 屏幕宽度
+ */
+fun Context.screenWidth(): Int {
+    val vm = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val point = Point()
+    vm.defaultDisplay.getSize(point)
+    return point.x
+}
+
+/**
+ * 屏幕高度
+ */
+fun Context.screenHeight(): Int {
+    val vm = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val point = Point()
+    vm.defaultDisplay.getSize(point)
+    return point.y
 }
