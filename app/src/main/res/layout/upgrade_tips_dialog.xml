@@ -2,80 +2,100 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_update_bg"
-    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack40"
+    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/title_height"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_20"
+        android:layout_marginEnd="@dimen/d_20"
+        android:background="@drawable/shape_update_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/d_14"
-            android:layout_height="@dimen/d_14"
-            android:src="@mipmap/ic_android" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/d_14"
+                android:layout_height="@dimen/d_14"
+                android:src="@mipmap/ic_android" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d_4"
+                android:gravity="center_vertical"
+                android:text="温馨提示"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp14" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/d_4"
-            android:gravity="center_vertical"
+            android:tag="beta_title"
             android:textColor="@color/black"
             android:textSize="@dimen/sp14"
-            tools:text="温馨提示" />
-    </LinearLayout>
+            tools:text="玩Android1.0.0.4" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="beta_title"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp14"
-        tools:text="玩Android1.0.0.4" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="@dimen/d_12"
+            android:layout_marginTop="@dimen/d_12"
+            android:layout_marginEnd="@dimen/d_12"
+            android:background="@color/line_color" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginStart="@dimen/d_12"
-        android:layout_marginTop="@dimen/d_12"
-        android:layout_marginEnd="@dimen/d_12"
-        android:background="@color/line_color" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/d_12"
-        android:tag="beta_tip_message"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp12"
-        tools:text="版本：1.0.2" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/title_height">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/string_cancel"
-            android:tag="beta_cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d_12"
+            android:tag="beta_tip_message"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp16" />
+            android:textSize="@dimen/sp12"
+            tools:text="版本：1.0.2" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/string_confirm"
-            android:tag="beta_confirm_button"
-            android:textColor="@color/red"
-            android:textSize="@dimen/sp16" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:tag="beta_cancel_button"
+                android:text="@string/string_cancel"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp16" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/gray_1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:tag="beta_confirm_button"
+                android:text="@string/string_confirm"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp16" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
