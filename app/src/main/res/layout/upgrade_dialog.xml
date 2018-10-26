@@ -72,6 +72,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/string_cancel"
+            android:tag="beta_cancel_button"
             android:textColor="@color/black"
             android:textSize="@dimen/sp16" />
 
@@ -81,6 +82,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/string_confirm"
+            android:tag="beta_confirm_button"
             android:textColor="@color/red"
             android:textSize="@dimen/sp16" />
     </LinearLayout>

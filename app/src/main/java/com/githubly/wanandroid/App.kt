@@ -58,6 +58,9 @@ class App : Application() {
         Beta.enableHotfix = false
         Beta.enableNotification = true
         Beta.autoCheckUpgrade = true
+        Beta.largeIconId = R.mipmap.ic_launcher
+        Beta.smallIconId = R.mipmap.ic_launcher
+        Beta.upgradeDialogLayoutId = R.layout.upgrade_dialog
         Beta.canShowUpgradeActs.add(MainActivity::class.java)
         Bugly.init(applicationContext, BuildConfig.BuglyID, BuildConfig.DEBUG)
     }
