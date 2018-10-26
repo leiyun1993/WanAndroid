@@ -142,6 +142,9 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
 - [ ] TODO工具
 - [ ] 搜索功能
 - [ ] 优化项目页瀑布流显示
+### v1.0.1.0
+- [x] 修改升级样式
+- [x] 解决adapter重复绑定的bug
 ### v1.0.0.3
 - [x] 引入bugly，增加升级功能
 ### v1.0.0.2
