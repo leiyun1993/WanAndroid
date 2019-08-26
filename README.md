@@ -132,7 +132,7 @@ class HomeAdapter : BaseQuickAdapter<ArticleItem, BaseViewHolder>(R.layout.item_
 }
 ```
 ### 4、关于页面
-这是个加载的本地Html，是抠了[WanAndroid-About](http://www.wanandroid.com/about)然后加上了关于本App的介绍，使用了自己仅有CSS技术做了一个简单的手机适配。（最近大家也知道，感觉Android越来越不景气了，大家还从事android的一定要拓展，要嘛更深，要嘛更广~~~说实话好想转行）
+这是个加载的本地Html，是抠了[WanAndroid-About](http://www.wanandroid.com/about)然后加上了关于本App的介绍
 
 ![image](https://github.com/leiyun1993/WanAndroid/raw/master/screenshot/12.jpg)
 
